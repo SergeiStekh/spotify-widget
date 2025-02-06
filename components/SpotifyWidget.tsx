@@ -14,6 +14,7 @@ import { SpotifyUserProfile } from "@/types/spotifyUserProfile";
 
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID!;
 const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI!;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-read-email", "user-read-private", "user-read-currently-playing"];
 
@@ -78,7 +79,7 @@ const SpotifyWidget = () => {
         
       ) : (
         <>
-          <SpotifyDetailsCard user={user} />
+          <SpotifyDetailsCard user={user} baseUrl={baseUrl}/>
           <Button onClick={handleDisconnect} className="bg-green-500 hover:bg-green-600 text-white">
             Disconnect from Spotify
           </Button>

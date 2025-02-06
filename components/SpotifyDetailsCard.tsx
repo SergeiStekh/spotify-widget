@@ -5,10 +5,10 @@ import { CopyButton } from "./CopyButton";
 
 interface SpotifyDetailsCardProps {
   user: SpotifyUserProfile | null | undefined;
+  baseUrl: string;
 }
 
-export const SpotifyDetailsCard: React.FC<SpotifyDetailsCardProps> = ({ user }) => {
-  console.log(user);
+export const SpotifyDetailsCard: React.FC<SpotifyDetailsCardProps> = ({ user, baseUrl }) => {
   return (
     <Card className="w-full max-w-md bg-gray-800">
       <CardContent className="pt-6">
@@ -54,7 +54,7 @@ export const SpotifyDetailsCard: React.FC<SpotifyDetailsCardProps> = ({ user }) 
             </p>
             <div className="flex items-center space-x-2">
               <a
-                href={`http://localhost:3000/bot/${user?.id}`}
+                href={`${baseUrl}/bot/${user?.id}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
